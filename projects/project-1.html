@@ -338,6 +338,10 @@
 
       .video-card,
       .image-card { border-radius: 12px; }
+
+      .media-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
@@ -416,7 +420,7 @@
       </div>
 
       <!-- Two images side by side -->
-      <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:16px;height:480px;">
+      <div class="media-grid" style="display:grid;grid-template-columns:1.7fr 1fr;gap:16px;height:480px;">
         <div class="image-card" style="aspect-ratio:unset;height:100%;">
           <img src="../Media/Dressed for Wimbledon/OOH-22.jpg" alt="Dressed for Wimbledon OOH" />
         </div>
@@ -430,7 +434,7 @@
       </div>
 
       <!-- Agassi video + photo side by side -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:480px;">
+      <div class="media-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:480px;">
         <div class="video-card" id="agassiCard" style="aspect-ratio:unset;height:100%;">
           <video id="agassiVideo" src="../Media/Dressed for Wimbledon/Agassi.mp4" loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>
           <div class="play-btn" id="agassiPlayBtn">
@@ -451,7 +455,7 @@
       </div>
 
       <!-- 1.webp + 2.webp side by side -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="media-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div class="image-card">
           <img src="../Media/Dressed for Wimbledon/1.webp" alt="" />
         </div>

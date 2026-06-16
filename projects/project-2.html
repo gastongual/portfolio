@@ -338,6 +338,10 @@
 
       .video-card,
       .image-card { border-radius: 12px; }
+
+      .media-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
@@ -411,7 +415,7 @@
       </div>
 
       <!-- StellabyTeniers + StellabyManet -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="media-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div class="image-card" style="aspect-ratio:unset;height:auto;">
           <img src="../Media/Artois Probability/StellaByTeniers.jpg" alt="Stella by Teniers" style="object-fit:contain;height:auto;" />
         </div>
@@ -421,7 +425,7 @@
       </div>
 
       <!-- StellabyDeHooch + StellaByVanGogh + StellabyBrueghel -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+      <div class="media-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
         <div class="image-card" style="aspect-ratio:unset;height:auto;">
           <img src="../Media/Artois Probability/StellaByDeHooch.jpg" alt="Stella by De Hooch" style="object-fit:contain;height:auto;" />
         </div>
