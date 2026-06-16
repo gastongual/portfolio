@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/gasti/Documents/CUENTAS/GASTON/Portfolio/.claude)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(mkdir -p /Users/gasti/Documents/CUENTAS/GASTON/Portfolio/fonts && cp /Library/Fonts/SF-Pro-Display-Regular.otf /Library/Fonts/SF-Pro-Display-Light.otf /Library/Fonts/SF-Pro-Display-Medium.otf /Users/gasti/Documents/CUENTAS/GASTON/Portfolio/fonts/)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(cp \"/Users/gasti/Downloads/NO_FUSION_0210_015.HEIC\" \"/Users/gasti/Documents/CUENTAS/GASTON/Portfolio/about-photo.heic\")",
+      "Bash(sips -s format jpeg \"/Users/gasti/Documents/CUENTAS/GASTON/Portfolio/about-photo.heic\" --out \"/Users/gasti/Documents/CUENTAS/GASTON/Portfolio/about-photo.jpg\")",
+      "Bash(ipconfig getifaddr *)",
+      "Bash(xargs ls -lh)",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ]
+  }
+}
