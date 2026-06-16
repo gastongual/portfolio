@@ -343,6 +343,49 @@
         grid-template-columns: 1fr !important;
       }
     }
+
+    /* ── PROJECT NAV ── */
+    .project-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 8px;
+      padding-bottom: 36px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s cubic-bezier(0.5, 0, 0.5, 1),
+                  transform 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+    }
+
+    .project-nav.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-btn {
+      background: #eaeaea;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-family: "SF Pro Display", -apple-system, sans-serif;
+      font-weight: 400;
+      cursor: pointer;
+      color: #231f20;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-btn:hover { background: #d8d8d8; }
+    body.dark .nav-btn { background: #222; color: #e8e8e8; }
+    body.dark .nav-btn:hover { background: #2e2e2e; }
+
+    @media (max-width: 768px) {
+      .project-nav { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+    }
   </style>
 </head>
 <body>
@@ -504,6 +547,17 @@
         else { vid.pause(); card.classList.remove('playing'); }
       });
     });
+
+    // Project nav reveal
+    const projectNav = document.querySelector('.project-nav');
+    if (projectNav) {
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          projectNav.classList.add('visible');
+        }
+      }, { threshold: 0.3 });
+      observer.observe(projectNav);
+    }
   </script>
 </body>
 </html>
