@@ -80,6 +80,86 @@
     }
 
     /* Credits box — same style as contact box */
+    .awards-wrap {
+      position: relative;
+    }
+    .awards-extra {
+      max-height: 44px;
+      overflow: hidden;
+      scrollbar-width: none;
+      transition: max-height 0.4s cubic-bezier(0.5, 0, 0.5, 1);
+    }
+    .awards-extra::-webkit-scrollbar { display: none; }
+    .awards-extra.open {
+      max-height: 160px;
+      overflow-y: auto;
+    }
+    .awards-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background: linear-gradient(transparent, #eaeaea);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .awards-fade.visible { opacity: 1; }
+    body.dark .awards-fade { background: linear-gradient(transparent, #222); }
+    .awards-fade-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background: linear-gradient(#eaeaea, transparent);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .awards-fade-top.visible { opacity: 1; }
+    body.dark .awards-fade-top { background: linear-gradient(#222, transparent); }
+    .awards-outer {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 0 20px;
+    }
+    .awards-outer .label {
+      flex-shrink: 0;
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 300;
+      color: #999;
+    }
+    .awards-wrap {
+      flex: 1;
+      position: relative;
+      text-align: right;
+    }
+    .award-value {
+      font-size: 13px;
+      font-weight: 300;
+      color: #939393;
+      padding: 12px 0;
+      line-height: 1.4;
+    }
+
+    .see-more {
+      display: block;
+      text-align: right;
+      font-size: 13px;
+      font-weight: 300;
+      color: #aaa;
+      text-decoration: none;
+      margin-top: 8px;
+      padding-right: 20px;
+    }
+    .see-more:hover { color: #888; }
+    body.dark .see-more { color: #555; }
+    body.dark .see-more:hover { color: #888; }
+
     .credits-box {
       background: #eaeaea;
       border: none;
@@ -369,11 +449,24 @@
         <span class="label">Client</span>
         <span class="value">Stella Artois</span>
       </div>
-      <div class="credit-row">
+      <div class="awards-outer">
         <span class="label">Awards</span>
-        <span class="value">1 x Cannes Grand Prix, 2 x Gold, 2 x Silver</span>
+        <div class="awards-wrap">
+          <div class="awards-extra">
+            <div class="award-value">Cannes - 1 Grand Prix, 2 Gold, 2 Silver</div>
+            <div class="award-value">D&amp;AD - 1 Yellow, 2 Graphite</div>
+            <div class="award-value">OneShow - 1 Gold, 1 Silver, 1 Bronze</div>
+            <div class="award-value">Andy's - 1 Gold</div>
+            <div class="award-value">Clio - 1 Gold, 1 Bronze</div>
+            <div class="award-value">Adage Creative Data Campaign of the Year</div>
+            <div class="award-value">#14 Best Ad 2023</div>
+          </div>
+          <div class="awards-fade-top" id="awardsFadeTop"></div>
+          <div class="awards-fade" id="awardsFade"></div>
+        </div>
       </div>
     </div>
+    <a class="see-more" href="#" id="seeMoreBtn">see more</a>
 
     <div class="bottom-row">
       <a class="btn" href="../index.html">Back Home</a>
@@ -512,7 +605,7 @@
     // Video play/pause
     const videoCard = document.getElementById('videoCard');
     const playBtn   = document.getElementById('playBtn');
-    const video     = videoCard.querySelector('video');
+    const video     = videoCard ? videoCard.querySelector('video') : null;
 
     if (video) {
       videoCard.addEventListener('click', () => {
@@ -526,6 +619,31 @@
       });
     }
 
+    const seeMoreBtn = document.getElementById('seeMoreBtn');
+    const awardsExtra = document.querySelector('.awards-extra');
+    const awardsFade = document.getElementById('awardsFade');
+    const awardsFadeTop = document.getElementById('awardsFadeTop');
+    if (seeMoreBtn && awardsExtra) {
+      const updateFades = () => {
+        const atBottom = awardsExtra.scrollTop + awardsExtra.clientHeight >= awardsExtra.scrollHeight - 2;
+        const atTop = awardsExtra.scrollTop <= 0;
+        if (awardsFade) awardsFade.classList.toggle('visible', !atBottom);
+        if (awardsFadeTop) awardsFadeTop.classList.toggle('visible', !atTop);
+      };
+      seeMoreBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const open = awardsExtra.classList.toggle('open');
+        seeMoreBtn.textContent = open ? 'see less' : 'see more';
+        if (open) {
+          if (awardsFade) awardsFade.classList.add('visible');
+        } else {
+          if (awardsFade) awardsFade.classList.remove('visible');
+          if (awardsFadeTop) awardsFadeTop.classList.remove('visible');
+          awardsExtra.scrollTop = 0;
+        }
+      });
+      awardsExtra.addEventListener('scroll', updateFades);
+    }
 
   </script>
 </body>
