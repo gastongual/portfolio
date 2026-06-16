@@ -119,8 +119,12 @@
     .contact-row a:hover { color: #231f20; }
 
     /* Awards */
+    .awards-spacer {
+      flex: 1;
+      transition: flex 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+    }
+
     .awards-section {
-      margin-top: auto;
       padding-bottom: 80px;
     }
 
@@ -217,6 +221,7 @@
       cursor: pointer;
       color: #231f20;
       transition: background 0.2s;
+      min-width: 100px;
     }
     .btn-see-more:hover { background: #d8d8d8; }
 
@@ -534,6 +539,8 @@
         </span>
       </div>
     </div>
+
+    <div class="awards-spacer"></div>
 
     <div class="awards-section">
       <p class="awards-title">Some shiny things.</p>
