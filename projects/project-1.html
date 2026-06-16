@@ -342,6 +342,20 @@
       .media-grid {
         grid-template-columns: 1fr !important;
       }
+
+      .ooh-grid {
+        height: auto !important;
+      }
+
+      .ooh-card {
+        aspect-ratio: unset !important;
+        height: auto !important;
+      }
+
+      .ooh-card img {
+        height: auto !important;
+        object-fit: contain !important;
+      }
     }
   </style>
 </head>
@@ -420,11 +434,11 @@
       </div>
 
       <!-- Two images side by side -->
-      <div class="media-grid" style="display:grid;grid-template-columns:1.7fr 1fr;gap:16px;height:480px;">
+      <div class="media-grid ooh-grid" style="display:grid;grid-template-columns:1.7fr 1fr;gap:16px;height:480px;">
         <div class="image-card" style="aspect-ratio:unset;height:100%;">
           <img src="../Media/Dressed for Wimbledon/OOH-22.jpg" alt="Dressed for Wimbledon OOH" />
         </div>
-        <div class="image-card" style="aspect-ratio:unset;height:100%;">
+        <div class="image-card ooh-card" style="aspect-ratio:unset;height:100%;">
           <img src="../Media/Dressed for Wimbledon/OOH-23.jpg" alt="Dressed for Wimbledon OOH" />
         </div>
       </div>
