@@ -123,6 +123,18 @@
       color: #939393;
     }
 
+    .awards-outer {
+      display: flex; align-items: flex-start; gap: 8px; padding: 0 20px;
+    }
+    .awards-outer .label {
+      flex-shrink: 0; padding: 12px 0; font-size: 13px; font-weight: 300; color: #999;
+    }
+    .awards-wrap { flex: 1; position: relative; text-align: right; }
+    .award-value {
+      font-size: 13px; font-weight: 300; color: #939393; padding: 12px 0; line-height: 1.4;
+    }
+    body.dark .award-value { color: #666; }
+
     /* Bottom buttons */
     .bottom-row {
       display: flex;
@@ -408,6 +420,10 @@
       <div class="credit-row">
         <span class="label">Client</span>
         <span class="value">Star Me Up</span>
+      </div>
+      <div class="credit-row">
+        <span class="label">Awards</span>
+        <span class="value">Diente (Arg) - 1 Silver</span>
       </div>
     </div>
 
