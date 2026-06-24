@@ -129,15 +129,11 @@
     /* Awards */
     .awards-spacer {
       flex: 1;
-      overflow: hidden;
-      transition: height 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+      transition: flex 0.5s cubic-bezier(0.5, 0, 0.5, 1);
     }
 
     .awards-section {
       padding-bottom: 80px;
-      display: flex;
-      flex-direction: column;
-      transition: flex 0.45s cubic-bezier(0.5, 0, 0.5, 1);
     }
 
     .awards-title {
@@ -169,38 +165,9 @@
       transition: max-height 0.45s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.3s cubic-bezier(0.5, 0, 0.5, 1);
     }
 
-    .awards-scroll-wrap {
-      position: relative;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    .awards-scroll {
-      overflow-y: auto;
-      scrollbar-width: none;
-      max-height: 260px;
-      flex: 1;
-      min-height: 0;
-      transition: max-height 0.45s cubic-bezier(0.5, 0, 0.5, 1);
-      padding-bottom: 0;
-    }
-
-    .awards-scroll::-webkit-scrollbar { display: none; }
-
-    .awards-expanded-fade {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 48px;
-      background: linear-gradient(transparent, #f4f4f5);
-      pointer-events: none;
-    }
-
-    body.dark .awards-expanded-fade {
-      background: linear-gradient(transparent, #141414);
+    .awards-section.open .awards-expanded {
+      max-height: 600px;
+      opacity: 1;
     }
 
     .awards-category {
@@ -585,98 +552,55 @@
 
     <div class="awards-section">
       <p class="awards-title">Some shiny things.</p>
-      <div class="awards-scroll-wrap">
-        <div class="awards-scroll">
+      <ul class="awards-list">
+        <li>Agency of the Year Cannes 2023</li>
+        <li>Indy Agency of the Year Cannes 2023</li>
+        <li>Adweek Int. Agency of the Year 2023</li>
+        <li>Adweek Breakthrough Agency of the Year 2023</li>
+        <li>AdAge's B2B Campaign of the year 2022</li>
+        <li>Creative Data Campaign of the year 2023</li>
+        <li>Best Young Creative Team Arg. 2020</li>
+      </ul>
+
+      <div class="awards-expanded">
+        <div class="awards-category">
+          <p class="category-title">Cannes.</p>
           <ul class="awards-list">
-            <li>Agency of the Year Cannes 2023</li>
-            <li>Indy Agency of the Year Cannes 2023</li>
-            <li>Adweek Int. Agency of the Year 2023</li>
-            <li>Adweek Breakthrough Agency of the Year 2023</li>
-            <li>AdAge's B2B Campaign of the year 2022</li>
-            <li>Creative Data Campaign of the year 2023</li>
-            <li>Best Young Creative Team Arg. 2020</li>
+            <li>1 x Grand Prix</li>
+            <li>2 x Gold</li>
+            <li>3 x Silver</li>
+            <li>1 x Bronze</li>
           </ul>
-          <div class="awards-expanded">
-            <div class="awards-category">
-              <p class="category-title">Cannes.</p>
-              <ul class="awards-list">
-                <li>1 x Grand Prix</li>
-                <li>2 x Gold</li>
-                <li>3 x Silver</li>
-                <li>1 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">D&amp;AD</p>
-              <ul class="awards-list">
-                <li>1 x Yellow pencil</li>
-                <li>2 x Graphite pencil</li>
-                <li>2 x Wood pencil</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Andy's</p>
-              <ul class="awards-list">
-                <li>2 x Gold</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">OneShow</p>
-              <ul class="awards-list">
-                <li>1 x Gold</li>
-                <li>3 x Silver</li>
-                <li>3 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Clio</p>
-              <ul class="awards-list">
-                <li>1 x Gold</li>
-                <li>2 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">El Sol</p>
-              <ul class="awards-list">
-                <li>1 x Grand Prix</li>
-                <li>2 x Gold</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Diente (Arg)</p>
-              <ul class="awards-list">
-                <li>1 x Titanium</li>
-                <li>10 x Gold</li>
-                <li>19 x Silver</li>
-                <li>17 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Effie</p>
-              <ul class="awards-list">
-                <li>6 x Gold</li>
-                <li>5 x Silver</li>
-                <li>3 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Ojo Iberoamerica</p>
-              <ul class="awards-list">
-                <li>1 x Gold</li>
-                <li>2 x Silver</li>
-                <li>3 x Bronze</li>
-              </ul>
-            </div>
-            <div class="awards-category">
-              <p class="category-title">Lápiz (Arg)</p>
-              <ul class="awards-list">
-                <li>2 x Gold</li>
-                <li>1 x Silver</li>
-              </ul>
-            </div>
-          </div>
         </div>
-        <div class="awards-expanded-fade"></div>
+        <div class="awards-category">
+          <p class="category-title">D&amp;AD</p>
+          <ul class="awards-list">
+            <li>1 x Yellow pencil</li>
+            <li>2 x Graphite pencil</li>
+            <li>2 x Wood pencil</li>
+          </ul>
+        </div>
+        <div class="awards-category">
+          <p class="category-title">Andy's</p>
+          <ul class="awards-list">
+            <li>2 x Gold</li>
+          </ul>
+        </div>
+        <div class="awards-category">
+          <p class="category-title">OneShow</p>
+          <ul class="awards-list">
+            <li>1 x Gold</li>
+            <li>3 x Silver</li>
+            <li>3 x Bronze</li>
+          </ul>
+        </div>
+        <div class="awards-category">
+          <p class="category-title">Clio</p>
+          <ul class="awards-list">
+            <li>1 x Gold</li>
+            <li>2 x Bronze</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -763,26 +687,6 @@
         <div class="awards-category">
           <p class="category-title">Clio</p>
           <ul class="awards-list"><li>1 x Gold</li><li>2 x Bronze</li></ul>
-        </div>
-        <div class="awards-category">
-          <p class="category-title">El Sol</p>
-          <ul class="awards-list"><li>1 x Grand Prix</li><li>2 x Gold</li></ul>
-        </div>
-        <div class="awards-category">
-          <p class="category-title">Diente (Arg)</p>
-          <ul class="awards-list"><li>1 x Titanium</li><li>10 x Gold</li><li>19 x Silver</li><li>17 x Bronze</li></ul>
-        </div>
-        <div class="awards-category">
-          <p class="category-title">Effie</p>
-          <ul class="awards-list"><li>6 x Gold</li><li>5 x Silver</li><li>3 x Bronze</li></ul>
-        </div>
-        <div class="awards-category">
-          <p class="category-title">Ojo Iberoamerica</p>
-          <ul class="awards-list"><li>1 x Gold</li><li>2 x Silver</li><li>3 x Bronze</li></ul>
-        </div>
-        <div class="awards-category">
-          <p class="category-title">Lápiz (Arg)</p>
-          <ul class="awards-list"><li>2 x Gold</li><li>1 x Silver</li></ul>
         </div>
       </div>
     </div>
@@ -878,18 +782,8 @@
     window.addEventListener('resize', updateThumb);
     window.addEventListener('load', updateThumb);
 
-    // Forward scroll from left panel to right panel (but let awards list scroll itself)
+    // Forward scroll from left panel to right panel
     document.querySelector('.left').addEventListener('wheel', e => {
-      const awardsScroll = document.querySelector('.awards-scroll');
-      if (awardsScroll && awardsScroll.contains(e.target)) {
-        const atTop    = awardsScroll.scrollTop === 0 && e.deltaY < 0;
-        const atBottom = awardsScroll.scrollTop + awardsScroll.clientHeight >= awardsScroll.scrollHeight - 2 && e.deltaY > 0;
-        if (!atTop && !atBottom) {
-          e.preventDefault();
-          awardsScroll.scrollBy({ top: e.deltaY, behavior: 'auto' });
-          return;
-        }
-      }
       e.preventDefault();
       right.scrollBy({ top: e.deltaY, behavior: 'auto' });
     }, { passive: false });
@@ -927,17 +821,13 @@
     });
 
     // See more / See less toggle
-    const btn          = document.getElementById('btnSeeMore');
-    const mobileSheet  = document.getElementById('mobileSheet');
-    const leftPanel    = document.querySelector('.left');
-    const heroTitle    = document.querySelector('.hero-title');
-    const contactBox   = document.querySelector('.contact-box');
-    const expanded     = document.querySelector('.awards-expanded');
-    const spacer       = document.querySelector('.awards-spacer');
-    const awardsSection  = document.querySelector('.awards-section');
-    const awardsScroll   = document.querySelector('.awards-scroll');
-    const easing       = 'cubic-bezier(0.5, 0, 0.5, 1)';
-    let spacerH        = 0;
+    const btn        = document.getElementById('btnSeeMore');
+    const mobileSheet = document.getElementById('mobileSheet');
+    const leftPanel  = document.querySelector('.left');
+    const heroTitle  = document.querySelector('.hero-title');
+    const contactBox = document.querySelector('.contact-box');
+    const expanded   = document.querySelector('.awards-expanded');
+    const easing     = 'cubic-bezier(0.5, 0, 0.5, 1)';
 
     function setTransition(el, props) {
       el.style.transition = props.map(p => `${p} 0.4s ${easing}`).join(', ');
@@ -971,27 +861,15 @@
         setTransition(contactBox, ['opacity', 'max-height', 'margin-bottom']);
         setTransition(expanded,   ['opacity', 'max-height']);
 
-        // Lock spacer at current height, then animate to 0
-        spacerH = spacer.offsetHeight;
-        spacer.style.transition = 'none';
-        spacer.style.flex       = 'none';
-        spacer.style.height     = spacerH + 'px';
-        void spacer.offsetHeight;
-        spacer.style.transition = '';
-
         requestAnimationFrame(() => requestAnimationFrame(() => {
-          heroTitle.style.opacity      = '0';
-          heroTitle.style.maxHeight    = '0px';
+          heroTitle.style.opacity     = '0';
+          heroTitle.style.maxHeight   = '0px';
           heroTitle.style.marginBottom = '0';
-          contactBox.style.opacity     = '0';
-          contactBox.style.maxHeight   = '0px';
+          contactBox.style.opacity    = '0';
+          contactBox.style.maxHeight  = '0px';
           contactBox.style.marginBottom = '0';
-          expanded.style.maxHeight     = expandH + 'px';
-          expanded.style.opacity       = '1';
-          spacer.style.height          = '0';
-          awardsSection.style.flex     = '1';
-          awardsScroll.style.maxHeight   = '600px';
-          awardsScroll.style.paddingBottom = '3.2em';
+          expanded.style.maxHeight    = expandH + 'px';
+          expanded.style.opacity      = '1';
         }));
 
       } else {
@@ -1015,17 +893,6 @@
           contactBox.style.marginBottom = '';
           expanded.style.maxHeight     = '0px';
           expanded.style.opacity       = '0';
-          spacer.style.height              = spacerH + 'px';
-          awardsSection.style.flex         = '';
-          awardsScroll.style.maxHeight     = '';
-          awardsScroll.style.paddingBottom = '';
-          setTimeout(() => {
-            spacer.style.transition = 'none';
-            spacer.style.height     = '';
-            spacer.style.flex       = '';
-            void spacer.offsetHeight;
-            spacer.style.transition = '';
-          }, 510);
         }));
       }
     });
